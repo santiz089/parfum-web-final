@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Estilos base premium */
+        /* Estilos base que le da la primera forma*/
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -27,7 +27,7 @@
             stroke-width: 2;
         }
         
-        /* Glassmorphism Premium */
+        /* Glassmorphism */
         .glass {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(12px);
@@ -42,12 +42,12 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Gradientes Elegantes */
+        /* Gradientes */
         .gradient-gold {
             background: linear-gradient(135deg, #f9d423 0%, #e8b44c 50%, #d4af37 100%);
         }
         
-        /* Animaciones Sofisticadas */
+        /* Animaciones */
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-15px) rotate(2deg); }
@@ -101,7 +101,7 @@
         .btn-premium:hover::before { left: 100%; }
         .btn-premium:hover { transform: scale(1.05); }
         
-        /* Scrollbar Personalizada */
+        /* Deslizador o scroll mas personalizado */
         ::-webkit-scrollbar { width: 12px; }
         ::-webkit-scrollbar-track { background: #1a1a2e; }
         ::-webkit-scrollbar-thumb {
@@ -118,7 +118,7 @@
             filter: brightness(1.1);
         }
 
-        /* Estilo específico para la tabla del administrador */
+        /* Estilo para la tabla administrador */
         .admin-table th {
             background: linear-gradient(90deg, #d4af37, #f9d423);
             color: #1a1a2e; /* Color oscuro para el texto del encabezado */
@@ -139,7 +139,7 @@
     <div id="app-container"></div>
 
     <script>
-        // --- 1. Definición de Íconos ---
+        // --- 1. Definimos los Íconos ---
         const icons = {
             ShoppingCart: (size, className = '') => `<svg class="icon ${className}" width="${size}" height="${size}" viewBox="0 0 24 24" stroke="currentColor"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>`,
             User: (size, className = '') => `<svg class="icon ${className}" width="${size}" height="${size}" viewBox="0 0 24 24" stroke="currentColor"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
@@ -155,7 +155,7 @@
             Trash: (size, className = '') => `<svg class="icon ${className}" width="${size}" height="${size}" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>`,
         };
 
-        // --- 2. Estado Global y Funciones de Utilidad ---
+        // --- 2. Estado General (Principal) y Funciones de Utilidad (revisen si falta algo mas, por fa)---
         let state = {
             currentPage: 'home',
             // Configuración inicial (desconectado)
@@ -171,6 +171,8 @@
                 './eternity.jpg', './guilty.jpg', './invictus.jpg',
                 './L1212.jpg', './savage.jpg', './tomford.jpg'
             ],
+            //imagenes que agregamos solo para presentar el carrusel(arriba).
+            //imagenes que apareceran como oferta, premium, etc (abajo).
             products: [
                 { id: 1, name: 'Dior Sauvage', price: 2499, image: './savage.jpg', category: 'hombre', badge: '🔥 Best Seller', rating: 4.9 },
                 { id: 2, name: 'Chanel Bleu', price: 3299, image: './bleu.jpg', category: 'mujer', badge: '👑 Icónico', rating: 5.0 },
@@ -219,7 +221,7 @@
             }, 4500);
         }
 
-        // --- LÓGICA DE AUTENTICACIÓN ---
+        // --- LÓGICA QUE APLICAREMOS PARA LA AUTENTICACIÓN (PROBABLE CAMBIO DEPENDIENDO BD)---
         function logout() {
             setState({
                 isLoggedIn: false,
@@ -243,7 +245,7 @@
                 return;
             }
 
-            // Aqui simulamos el login exitoso, aun no sirve
+            // Aqui simulamos el login exitoso, aun no sirve, es solo prueba
             if (username && password) {
                 // Si el usuario es 'admin', asignará el rol 'admin'
                 setState({
@@ -795,4 +797,5 @@
     </script>
 </body>
 </html>
+
 
